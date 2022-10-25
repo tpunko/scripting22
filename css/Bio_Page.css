@@ -1,0 +1,124 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Signika+Negative&display=swap');
+
+
+body{
+	background-image: url("../images/mapbackground.png");
+	background-attachment: fixed;
+	background-position: center;
+	
+}
+
+
+header .container{
+	background-color:bisque;
+}
+
+section .container{
+	background-color:bisque;
+}
+
+footer .container{
+	background-color:bisque;
+}
+
+.altbackground{
+	background-color: #EFD0AC
+}
+
+p{
+	font-size: 20px;
+	font-family:Signika Negative;
+}
+/**********************Header*********************/
+#cover_title{
+	background-image: url("../images/cover_map.jpg");
+	background-position: center;
+	background-size:cover;
+}
+
+header{
+	color: darkgreen;
+	font-family:Kaushan Script;
+	text-shadow: 6px 6px 8px white;
+}
+
+h1{
+	font-size: 100px;
+}
+h2{
+	font-size: 70px;
+}
+
+/******************Footer*******************/
+
+#cover-info{
+	background-image: url("../images/wood-plank-texture_.png");
+}
+
+footer{
+	color: antiquewhite;
+}
+
+h4{
+	font-family:Kaushan Script;
+}
+/********************Nav Bar css*********************/
+
+#cover_nav{
+	background-image: url("../images/wood-plank-texture_.png");
+}
+
+nav ul {
+	list-style-type: none;
+	overflow: hidden;
+	text-align: center;
+	font-size: 20px;
+	font-family:Kaushan Script;
+}
+
+nav li {
+	display: inline-block;
+}
+
+nav li a:link {
+	display: block;
+	color: antiquewhite;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+nav li a:visited{
+	color: antiquewhite;
+	
+}
+nav li a:hover {
+	transition-duration: 0.4s;
+	color:black;
+
+}
+
+
+/************************links****************************/
+a{
+	font-family:Signika Negative;
+	font-size: 20px;
+}
+
+a:link{
+	color:antiquewhite;
+	
+}
+a:visited{
+	color:antiquewhite;
+}
+a:hover{
+	color:darkkhaki;
+	text-decoration:none;
+}
+a:active{
+	color:brown;
+}
