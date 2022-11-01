@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/**if you want a different look in each header on the different pages, then use an ID rather that just header**/
+#homeMasthead{
+	/**background-color: #3C94B8;**/
+	background-image: url("../images/backgrounds/Convocation-mobile.jpg");
+	background-size: cover;
+	background-position: center;
+}
+/*se the default font size - MOBILE FIRST*/
+/** overridding BS4**/
+.display-1{
+	font-size: 40px;
+	
+}
+
+
+
+/*class to define the height of any element it is added to*/
+.height80{
+	height: 80vh;
+}
+
+footer{
+	background-color: #225F77;
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+a{
+	color: white;
+}
+a:link a:visited{
+	color: white;
+}
+a:hover{
+	color: darkgrey;
+}
+
+
+h2{
+	color: #225F77;
+}
+
+.bg-dark{
+	background-color: #225F77 !important;
+}
+
+/* Small devices (portrait tablets and large phones, 576px and up) */
+@media only screen and (min-width: 576px) {
+	
+	.display-1{
+		font-size: 60pt;	
+	}
+	
+}
+
+
+
+/* Medium devices (laptops/desktops, 768px and up) */
+@media only screen and (min-width: 768px) {
+	
+	#homeMasthead{
+		background-image: url("../images/backgrounds/patty-pig.jpg");
+		background-size: cover;
+		background-position: center;
+	}
+	
+	#homeServices{
+		background-image: url("../images/backgrounds/pig.jpeg");
+		background-size: cover;
+		background-position: center;
+		
+	}
+	
+	#conactMasthead{
+		background-image: url("../images/backgrounds/maxresdefault.jpg");
+		background-size: cover;
+		background-position: center;
+	}
+	
+	.display-1{
+		font-size: 80pt;	
+	}
+	
+}
