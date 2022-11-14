@@ -1,0 +1,208 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Signika+Negative&display=swap');
+
+
+/*************************class define*******************/
+/*class to define the height of any element it is added to*/
+.height80{
+	height: 80vh;
+}
+.height10{
+	height: 11vh;
+}
+.height30{
+	height: 30vh;
+}
+.height7{
+	height: 7vh;	
+}
+.paddling{
+	padding:1.8vh 0;
+}
+
+/**************************header images*********************/
+
+#templatemasthead{
+	background-image: url("https://via.placeholder.com/1920x1080");
+	background-size: cover;
+	background-position: center;
+}
+#homemasthead{
+	background-image: url("../images/home.jpg");
+	background-size: cover;
+	background-position: center;
+}
+#historymasthead{
+	background-image: url("../images/history.jpg");
+	background-size: cover;
+	background-position: right;
+}
+#landmasthead{
+	background-image: url("../images/land.jpg");
+	background-size: cover;
+	background-position: left;
+}
+#businmasthead{
+	background-image: url("../images/busin.jpg");
+	background-size: cover;
+	background-position: center;
+}
+#refmasthead{
+	background-image: url("../images/ref.jpg");
+	background-size: cover;
+	background-position: center;
+}
+/********************genarel*************************/
+
+section img{
+	box-shadow: 5px 5px 5px rgba(128,128,128,0.53);
+}
+
+h1{
+	font-family: Pacifico;
+}
+
+h2{
+	font-size: 20px;
+	color:#F6C747;
+	font-family: Signika Negative;
+}
+h3{
+	font-family: Signika Negative;
+}
+h4{
+	font-size: 30px;
+	color:#F6C747;
+	font-family: Pacifico;
+}
+
+ul{
+	display: inline
+}
+
+.contentcolor{
+	background-color: #E1CF9E;
+}	
+
+/******************************footer******************************/
+	
+
+.photofooter{
+	background-color: #B1BD96;
+}
+
+#mastheadtile{
+	/*background-color:rgba(103,155,185,0.56);*/
+	color: #F6C747;
+	text-shadow: 1px 1px 2px #222222;
+}
+
+footer{
+	background-image: url("../images/footerimg.png");
+	background-size: cover;
+	background-position: center;
+	padding: 60px 0px 60px 0px;
+	color: antiquewhite;
+	text-shadow: 1px 1px 2px #222222;
+	
+}
+
+.fab{
+	color: antiquewhite;
+}
+
+#submit{
+	color: antiquewhite;
+	text-shadow: 1px 1px 2px #222222;
+}
+.btn-dark{
+	background-color: rgba(103,155,185,0.56) !important;
+	border-color: antiquewhite;
+}
+
+/***********************************navbar*****************************/
+
+#mainnav,#quicklink,#quicklinkbig{
+	font-size: 20px;
+	font-family: Signika Negative;
+}
+
+.mastsub{
+	background-color: #679BB9 !important;
+}
+
+.bg-dark{
+	background-color: #679BB9 !important;
+}
+
+.bigNav{
+	display:none;
+}
+
+.mobilecollapse{
+	display: block;
+}
+
+.menutag{
+	display: block;
+}
+nav a{
+	color: #F6C747 !important;
+}
+nav a:link a:visited{
+	color: #F6C747 !important;
+}
+nav a:hover{
+	color: #A1BA6A !important;
+}
+
+/***********************************page specific*****************/
+section ul a{
+	color: black;
+	font-size:20px;
+}
+.test{
+	background-color: red;
+}
+
+/*******************************media data********************/
+
+
+/* Medium devices (laptops/desktops, 768px and up) */
+@media only screen and (min-width: 850px) {
+	.lilNav{
+		display:none;
+	}
+	.bigNav{
+		display: block;
+	}
+	.mastsub{
+		display: none;
+	}
+	.mobilecollapse{
+		display: none;
+	}
+	h1{
+		font-size: 60px;
+	}
+	#mastheadtile p{
+		font-size: 25px;
+	}
+	
+}
+
+@media only screen and (min-width: 768px){
+	
+	.menutag{
+		display: none;
+	}
+	
+	
+}
+
+
+/**   color: #F6C747;   **/
+/**   color: #A1BA6A;   **/
+/**   color: #679BB9;   **/
