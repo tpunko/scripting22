@@ -1,0 +1,65 @@
+@charset "utf-8";
+/* CSS Document */
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Sriracha&display=swap');
+
+
+body{
+	background-image: url("../images/background.png");
+	background-attachment: fixed;
+	background-position: center;
+	
+}
+
+#header{
+	background-color: rgba(255,232,206,0.79);
+}
+#form{
+	background-color: rgba(255,255,255,0.79);
+	font-family: Nunito;
+	
+}
+#story{
+	background-color: rgba(255,255,255,0.79);
+}
+#footer{
+	background-color:rgba(255,232,206,0.79);
+}
+
+
+h1{
+	font-family: Sriracha;
+}
+h3{
+	font-size: 22px;
+	font-family: Nunito;
+}
+p{
+	font-family: Nunito;
+}
+
+
+
+#output2 p{
+	text-indent: 50px;
+}
+hr{
+	height: 1px;
+	background-color: black;
+	border-width: thin;
+	width: 70%;
+}
+
+a{
+	font-family:Nunito;
+}
+
+a:link{
+	color:black;
+	
+}
+a:visited{
+	color:black;
+}
+a:hover{
+	color:cornflowerblue;
+}
