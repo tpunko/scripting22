@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Clone Armoury</title>
+	
+	<!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    
+	<link href="css/clone.css" rel="stylesheet" type="text/css">
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+	
+</head>
+
+<body>
+	
+	<header onLoad="javascript:conflicts();" >
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 pb-3">
+					<h1>THE CLONE ARMOURY</h1>
+					<h2>Design your own Trooper</h2>
+					<h6>Design your own Trooper</h6>
+				</div>
+					 
+			</div>
+		
+		</div>
+	
+	
+	</header>
+	
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 py-3" id="input">
+					<h3>Getting Started</h3>
+					<h6>Getting Started</h6>
+					<p>Select a Phase template to begin. You can select one item from each category, excluding accessories where you can select multiple.</p>
+					<p>Red marks remove all items in that category.</p>
+					<p>Black marks mean the item has a conflict with another item/template you have chosen.</p>
+					
+					<h4>Phase</h4>
+					<h6>Phase</h6>
+					<img class="py-1" onClick="setPhase('phase1.png');" src="base/phase1_TN.png" alt="Phase 1 seclection">
+					<img class="py-1 px-1" onClick="setPhase('phase1_ARF.png');" src="base/phase1_ARF_TN.png" alt="Phase 1 ARF seclection">
+					<img class="py-1" onClick="setPhase('phase1.5.png');" src="base/phase1.5_TN.png" alt="Phase 1.5 seclection">
+					<img class="py-1" onClick="setPhase('phase2.png');" src="base/phase2_TN.png" alt="Phase 2 seclection">
+					<img class="py-1 px-1" onClick="setPhase('phase2_ARF.png');" src="base/phase2_ARF_TN.png" alt="Phase 2 ARF seclection">
+					<img class="py-1" onClick="setPhase('phase2_air.png');" src="base/phase2_air_TN.png" alt="Phase 2 air seclection">
+						
+					<h4>ARC Armour</h4>
+					<h6>ARC Armour</h6>				
+					<img class="py-1" onClick="setARC('none.png');" src="assets/ARC/ARC_none_TN.png" alt="No armour seclection">
+					<img class="py-1 px-1" onClick="setARC('ARC_armour.png');" src="assets/ARC/ARC_armour_TN.png" alt="ARC armour seclection">
+					
+					<h4>Helmet Attachments</h4>
+					<h6>Helmet Attachments</h6>
+					<div id="attachCF">	
+					<img class="py-1" onClick="setAttach('none.png');" src="assets/head/head_none_TN.png" alt="No Attachments seclection">
+					<img class="py-1 px-1" onClick="setAttach('head_flashlight.png'),setVisor('head_visor.png');" src="assets/head/head_flashlight_TN.png" alt="Flashlight seclection">
+					<img class="py-1" onClick="setAttach('head_antenna.png');" src="assets/head/head_antenna_TN.png" alt="Antenna seclection">
+					<img class="py-1" onClick="setAttach('head_rangefinder.png');" src="assets/head/head_rangefinder_TN.png" alt="Rangefinder seclection">
+					</div>
+					
+					<h4>Helmet Plates</h4>
+					<h6>Helmet Plates</h6>
+					<div id="platesCF">
+					<img class="py-1" onClick="setPlates('none.png');" src="assets/head/head_none_TN.png" alt="No plates seclection">
+					<img class="py-1 px-1" onClick="setPlates('head_plates.png');" src="assets/head/head_plates_TN.png" alt="Plates seclection">
+					<img class="py-1" onClick="setPlates('head_plates_gun.png');" src="assets/head/head_plates_gun_TN.png" alt="Gunner Plates seclection">
+					</div>
+					
+					<h4>Helmet Visor</h4>
+					<h6>Helmet Visor</h6>
+					<div id="visorCF">
+					<img class="py-1" onClick="setVisor('none.png');" src="assets/head/head_none_TN.png" alt="No visor seclection">
+					<img class="py-1 px-1" onClick="setVisor('head_visor.png');" src="assets/head/head_visor_TN.png" alt="Visor seclection">
+					<img class="py-1" onClick="setVisor('head_binoculars_D.png');" src="assets/head/head_binoculars_D_TN.png" alt="Binoculars down seclection">
+					<img class="py-1" onClick="setVisor('head_binoculars_U.png');" src="assets/head/head_binoculars_U_TN.png" alt="Binoculars up seclection">
+					</div>
+					
+					<h4>Helmet Flaps</h4>
+					<h6>Helmet Flaps</h6>
+					<div id="flapsCF">
+					<img class="py-1" onClick="setFlaps('none.png');" src="assets/head/head_none_TN.png" alt="No Flaps seclection">
+					<img class="py-1 px-1" onClick="setFlaps('flaps_P1.png');" src="assets/head/flaps_P1_TN.png" alt="Phase 1 Flaps seclection">
+					<img class="py-1" onClick="setFlaps('flaps_P2.png');" src="assets/head/flaps_P2_TN.png" alt="Phase 2 Flaps seclection">
+					<img class="py-1" onClick="setFlaps('flaps_ARF.png');" src="assets/head/flaps_ARF_TN.png" alt="ARF Flaps seclection">
+					</div>
+					
+					<h4>Pauldron</h4>
+					<h6>Pauldron</h6>
+					<div id="pauldronCF">
+					<img class="py-1" onClick="setPauldron('none.png');" src="assets/Pauldron/pauldron_none_TN.png" alt="No pauldron seclection">
+					<img class="py-1 px-1" onClick="setPauldron('pauldron_P1_base.png');" src="assets/Pauldron/pauldron_P1_base_TN.png" alt="Phase 1 pauldron seclection">
+					<img class="py-1" onClick="setPauldron('pauldron_P2_base.png');" src="assets/Pauldron/pauldron_P2_base_TN.png" alt="Phase 2 pauldron seclection">
+					<img class="py-1" onClick="setPauldron('pauldron_A_ARC_base.png');" src="assets/Pauldron/pauldron_A_ARC_base_TN.png" alt="Alpha ARC pauldron seclection">
+					<img class="py-1 px-1" onClick="setPauldron('pauldron_ARC_base.png');" src="assets/Pauldron/pauldron_ARC_base_TN.png" alt="ARC pauldron seclection">
+					<img class="py-1" onClick="setPauldron('pauldron_elite_base.png');" src="assets/Pauldron/pauldron_elite_base_TN.png" alt="Elite pauldron seclection">
+					</div>
+					
+					<h4>Back</h4>
+					<h6>Back</h6>
+					<div id="backCF">
+					<img class="py-1" onClick="setBack('none.png');" src="assets/back/back_none_TN.png" alt="No back seclection">
+					<img class="py-1 px-1" onClick="setBack('backpack_scout.png');" src="assets/back/backpack_scout_TN.png" alt="Scout backpack seclection">
+					<img class="py-1" onClick="setBack('backpack.png');" src="assets/back/backpack_TN.png" alt="backpack seclection">
+					<img class="py-1" onClick="setBack('backpack_ARC.png');" src="assets/back/backpack_ARC_TN.png" alt="ARC backpack seclection">
+					<img class="py-1 px-1" onClick="setBack('jetpack.png');" src="assets/back/jetpack_TN.png" alt="jetpack seclection">
+					<img class="py-1" onClick="setBack('jetpack2.png');" src="assets/back/jetpack2_TN.png" alt="jetpack 2 seclection">
+					</div>
+					
+					<h4>Thighs</h4>
+					<h6>Thighs</h6>
+					<div id="thighsCF">
+					<img class="py-1" onClick="setThigh('none.png');" src="assets/thigh/kama_none_TN.png" alt="No kama seclection">
+					<img class="py-1 px-1" onClick="setThigh('kama.png');" src="assets/thigh/kama_TN.png" alt="kama seclection">
+					<img class="py-1" onClick="setThigh('kama_A_ARC.png');" src="assets/thigh/kama_A_ARC_TN.png" alt="Alpha ARC kama  seclection">
+					<img class="py-1" onClick="setThigh('kama_ARC.png');" src="assets/thigh/kama_ARC_TN.png" alt="ARC kama seclection">
+					<img class="py-1 px-1" onClick="setThigh('kama_ARC_pouch.png');" src="assets/thigh/kama_ARC_pouch_TN.png" alt="ARC pouch kama seclection">
+					<img class="py-1" onClick="setThigh('pouch.png');" src="assets/thigh/pouch_TN.png" alt="pouch seclection">
+					</div>
+					
+					<h4>Straps</h4>
+					<h6>Straps</h6>
+					<div id="strapsCF">
+					<img class="py-1" onClick="setStrap('none.png');" src="assets/strap/strap_none_TN.png" alt="No strap seclection">
+					<img class="py-1 px-1" onClick="setStrap('suspenders.png');" src="assets/strap/suspenders_TN.png" alt="Suspenders seclection">
+					<img class="py-1" onClick="setStrap('support_straps.png');" src="assets/strap/support_straps_TN.png" alt="Support Straps seclection">
+					<img class="py-1" onClick="setStrap('support_belt.png');" src="assets/strap/support_belt_TN.png" alt="Support belt seclection">
+					</div>
+					
+					<h4>Accessories</h4>
+					<h6>Accessories</h6>
+					<div id="pouchHCF">
+					<img class="py-1" onClick="setPouchH('none.png'),setPouchL('none.png'),setShoulder('none.png'),setAnkle('none.png');" src="assets/pouch/pouch_none_TN.png" alt="No accessories seclection">
+					<img class="py-1 px-1" onClick="setPouchH('chest_pouches.png');" src="assets/pouch/chest_pouches_TN.png" alt="chest pouches seclection">
+					<img class="py-1" onClick="setPouchH('chest_ammo_pouches.png');" src="assets/pouch/chest_ammo_pouches_TN.png" alt="CHest ammo pouches seclection">
+					<img class="py-1" onClick="setPouchH('pauldron_pouch.png');" src="assets/pouch/pauldron_pouch_TN.png" alt="Pauldron pouch seclection">
+					<img class="py-1 px-1" onClick="setPauldron('pauldron_P2_base.png'),setPouchH('pauldron_pouches.png');" src="assets/pouch/pauldron_pouches_TN.png" alt="Pauldron pouches seclection">
+					
+					<img class="py-1" onClick="setShoulder('shoulder_ammo.png');" src="assets/pouch/shoulder_amno_TN.png" alt="Shoulder ammo seclection">
+					</div>
+					<div id="pouchLCF">
+					<img class="py-1" onClick="setPouchL('belt_pouches.png');" src="assets/pouch/belt_pouches_TN.png" alt="Belt pouches seclection">
+					<img class="py-1 px-1" onClick="setPouchL('belt_holsters.png');" src="assets/pouch/belt_holsters_TN.png" alt="belt holsters seclection">
+					
+					<img class="py-1" onClick="setAnkle('ankle_pouch.png');" src="assets/pouch/ankle_pouch_TN.png" alt="Ankle pouch seclection">
+					</div>
+					
+					<div class="py-4">
+					<h3>Learing Reflection</h3>
+					<h6>Learing Reflection</h6>
+					<p>I’d some of my Prouds moments were taking the knowledge I learned from asking questions and applying it in other places. Examples of this are pre-BS4 div columns to affect groups of content, hiding items for dual navbars to fix cut off problems, and putting if statements in if statements. It felt good to be able to apply what I learned not just for one problem.</p> 
+					<p>JavaScript in general was challenging. However, it was very satisfying when you finally got it to work or you had I idea to a problem and it actually worked.</p> 
+					<p>I would probably do this project again, it was fun, I’d just change the content. I decided to do the clone templates because it would actually be useful for me in the future with making templates, were the other obvious choice I was only going to make for the lols.</p>
+					<p>Remember the importance of planning and taking it one step at a time helps a lot when coding, which can apply to most everything. It keeps you focused and allows you to make progress.</p>
+					</div>
+				</div>
+
+				<div class="col-sm-8 py-3" id="output">
+					<div id="builder">
+
+						<img id="base" src="base/background.png" class="img-fluid" alt="phase">
+						<div id="phase"></div>
+						<div id="ARC"></div>
+						<div id="thigh"></div>
+						<div id="strap"></div>
+						<div id="shoulder"></div>
+						<div id="pauldron"></div>
+						<div id="pouchH"></div>
+						<div id="pouchL"></div>
+						<div id="ankle"></div>
+						<div id="plates"></div>
+						<div id="flaps"></div>
+						<div id="visor"></div>
+						<div id="attach"></div>
+						<div id="back"></div>
+						
+					</div>
+
+				</div>
+				
+			</div>
+			
+		</div>
+	
+	</section>
+	<footer>
+		<div class="container">
+			<div class="row py-5">
+				<div class="col-sm-3">
+					<h3>Coded By:</h3>
+					<h6>Coded By:</h6>
+					<p>Travis Punko</p>
+					<a href="https://tpunko.github.io/scripting22/" target="_blank">Bio Page Link</a>
+				</div>
+				<div class="col-sm-3">
+					<h3>Art By:</h3>
+					<h6>Art By:</h6>
+					<p>SmacksArt</p>
+					<a href="https://www.deviantart.com/smacksart" target="_blank">devianart.com</a>
+				</div>
+				<div class="col-sm-3">
+					<h3>Fonts By:</h3>
+					<h6>Fonts By:</h6>
+					<p>Boba Fonts</p>
+					<p>SpaceStation</p>
+					<p>Erikstormtrooper</p>
+				</div>
+				<div class="col-sm-3">
+					<h3>Republic Symbol From:</h3>
+					<h6>Republic Symbol From:</h6>
+					<a href="https://en.wikipedia.org/wiki/Galactic_Republic#/media/File:Galactic_Republic.svg" target="_blank">wikipendia.org</a>
+				</div>
+				
+			</div>
+		
+		</div>
+	
+	</footer>
+	
+	
+
+	
+	<script src="js/clone.js"></script>
+	
+</body>
+	
+</html>

@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face{
+	font-family: "Clone wars";
+	src: url("../fonts/clonewars2.ttf");
+}
+@font-face{
+	font-family: "Regular font";
+	src: url("../fonts/STJEDISE.TTF")
+}
+@font-face{
+	font-family: "Aurebesh";
+	src: url("../fonts/galbasic.ttf")
+}
+
+
+h1{
+	font-family: "Clone wars";
+	font-size: 105px;
+}
+h2{
+	font-family: "Regular font";
+	font-size: 40px;
+}
+h4,h3{
+	font-family: "Regular font";
+}
+
+p,a{
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+	font-size: 20px;
+}
+h6{
+	font-family: "Aurebesh";
+}
+
+section{
+	background-image:url("../background/background.png");
+	background-attachment: fixed;
+	background-position:center;
+}
+
+
+#builder{
+	position: relative;
+	height: 672;
+
+	
+}
+
+
+#phase, #base, #pauldron, #ARC, #thigh, #back, #strap, #pouchH, #pouchL, #shoulder, #ankle, #visor, #flaps, #attach, #plates{
+	position: absolute;
+}
+
+
+header, footer{
+	background-color: rgba(35,61,100,1.00);
+	color: antiquewhite;
+}
+#input{
+	background-color: rgba(159,159,159,1.00);
+}
+#output{
+	background-color: rgba(96,96,96,1.00);
+}
+
+a:link{
+	color:antiquewhite;
+	
+}
+a:visited{
+	color:antiquewhite;
+}
+a:hover{
+	color:cornflowerblue;
+}
+
