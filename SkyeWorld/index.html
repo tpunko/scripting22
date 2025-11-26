@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant Agents - Skye</title>
+
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+    <!--library for events setting on panels-->
+    <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
+
+    <!--environment component-->
+    <!--https://github.com/supermedium/aframe-environment-component-->
+    <script src="//unpkg.com/aframe-environment-component@0.8.2/dist/aframe-environment-component.min.js"></script>
+
+    <!--animations component-->
+    <!--https://aframe.io/docs/1.3.0/components/animation.html-->
+    <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
+
+</head>
+
+<body>
+
+    <a-scene light="defaultLightsEnabled: false">
+
+        <!-----------------asset preload--------------------------->
+        <a-assets>
+            <a-asset-item id="envi" src="assets/models/room.gltf"></a-asset-item>
+            <a-asset-item id="mesh" src="assets/models/navMesh.gltf"></a-asset-item>
+            <a-asset-item id="logo" src="assets/models/logo.gltf"></a-asset-item>
+
+            <a-asset-item id="spore" src="assets/models/spore.gltf"></a-asset-item>
+            <a-asset-item id="wolf" src="assets/models/wolf.gltf"></a-asset-item>
+            <a-asset-item id="gun" src="assets/models/guardian.gltf"></a-asset-item>
+            <a-asset-item id="bird" src="assets/models/bird.gltf"></a-asset-item>
+            <a-asset-item id="seeker" src="assets/models/seeker.gltf"></a-asset-item>
+
+            <audio id="clickSound" src="assets/audio/click.wav"></audio>
+            <audio id="music" src="assets/audio/valorantmusic.wav"></audio>
+            <audio id="regrowthSound" src="assets/audio/spore.wav"></audio>
+            <audio id="trailblazerSound" src="assets/audio/wolf.wav"></audio>
+            <audio id="guardianSound" src="assets/audio/skye.wav"></audio>
+            <audio id="guildingLightSound" src="assets/audio/bird.wav"></audio>
+            <audio id="seekersSound" src="assets/audio/seekers.wav"></audio>
+
+            <img id="regrowthPoster" src="assets/posters/posterSpore.png">
+            <img id="trailblazerPoster" src="assets/posters/posterWolf.png">
+            <img id="guardianPoster" src="assets/posters/posterSkye.png">
+            <img id="guildingLightPoster" src="assets/posters/posterBird.png">
+            <img id="seekersPoster" src="assets/posters/posterSeeker.png">
+
+        </a-assets>
+
+
+        <!--------------------assets loading------------------------->
+
+        <a-entity id="room" gltf-model="#envi" visible="true" shadow="case: true"></a-entity>
+        <a-entity id="navMesh" gltf-model="#mesh" visible="false" nav-mesh></a-entity>
+        <a-entity id="logoV" gltf-model="#logo" position="0 2.2129 -2.3325" light="type: directional; intensity: .4; target: #logoTarget; color: #FA4454;"></a-entity>
+
+        <a-entity id="regrowth" gltf-model="#spore" position="-1.7122 1.2002 -1.9364" shadow="case: true" sound="src:#regrowthSound; on:click;"
+            event-set__cursorw="_event: mouseenter; _target:#ring; color:white; scale:1 1 1;"
+            event-set__cursorr="_event: mouseleave; _target:#ring; color:red; scale:0.6 0.6 0.6;"
+            event-set__light1="_event: mouseenter; _target: #regrowth_Light; light.intensity: 2.5;"
+            event-set__light2="_event: mouseleave; _target: #regrowth_Light; light.intensity: 1;"
+            event-set__model="_event: click; _target: #regrowth; animation.property: position; animation.to: -1.7122 1.47 -1.9364; dur: 500;"
+            event-set__poster="_event: click; _target: #regrowthFrame; animation.property: position; animation.from: -1.8122 1.8 -1.98; animation.to: -1.7122 1.8 -1.98; animation__1.property: material.opacity; animation__1.from: 0; animation__1.to: 100; animation__1.dur: 20000;"
+        ></a-entity>  
+        <a-entity id="trailblazer" gltf-model="#wolf" position="-0.84073 1.3011 -1.9358" shadow="case: true" sound="src:#trailblazerSound; on:click;"
+            event-set__cursorw="_event: mouseenter; _target:#ring; color:white; scale:1 1 1;"
+            event-set__cursorr="_event: mouseleave; _target:#ring; color:red; scale:0.6 0.6 0.6;"
+            event-set__light1="_event: mouseenter; _target: #trailblazer_Light; light.intensity: 2.5;"
+            event-set__light2="_event: mouseleave; _target: #trailblazer_Light; light.intensity: 1;"
+            event-set__model="_event: click; _target: #trailblazer; animation.property: position; animation.to:-0.84073 1.44 -1.9358; dur: 400;"
+            event-set__poster="_event: click; _target: #trailblazerFrame; animation.property: position; animation.from:-0.94073 1.8 -1.98; animation.to:-0.84073 1.8 -1.98; animation__1.property: material.opacity; animation__1.from: 0; animation__1.to: 100; animation__1.dur: 20000;"
+        ></a-entity>
+        <a-entity id="guardian" gltf-model="#gun" position="-.05 1.1764 -1.9456" shadow="case: true" sound="src:#guardianSound; on:click;" 
+            event-set__cursorw="_event: mouseenter; _target:#ring; color:white; scale:1 1 1;"
+            event-set__cursorr="_event: mouseleave; _target:#ring; color:red; scale:0.6 0.6 0.6;"
+            event-set__light1="_event: mouseenter; _target: #guardian_Light; light.intensity: 2.5;"
+            event-set__light2="_event: mouseleave; _target: #guardian_Light; light.intensity: 1;"
+            event-set__model="_event: click; _target: #guardian; animation__1.property: rotation; animation__1.to: 90 20 0; animation.property: position; animation.to: -.05 1.45 -1.9456; dur: 500;"
+            event-set__poster="_event: click; _target: #guardianFrame; animation.property: position; animation.from: -.1 1.8 -1.9456; animation.to: 0 1.8 -1.9456; animation__1.property: material.opacity; animation__1.from: 0; animation__1.to: 100; animation__1.dur: 20000;" 
+        ></a-entity>
+        <a-entity id="guildingLight" gltf-model="#bird" position="0.8699 1.2225 -1.9314" shadow="case: true" sound="src:#guildingLightSound; on:click;"
+            event-set__cursorw="_event: mouseenter; _target:#ring; color:white; scale:1 1 1;"
+            event-set__cursorr="_event: mouseleave; _target:#ring; color:red; scale:0.6 0.6 0.6;"
+            event-set__light1="_event: mouseenter; _target: #guildingLight_Light; light.intensity: 2.5;"
+            event-set__light2="_event: mouseleave; _target: #guildingLight_Light; light.intensity: 1;"
+            event-set__model="_event: click; _target: #guildingLight; animation.property: position; animation.to:0.8699 1.4225 -1.95; dur: 500;"
+            event-set__poster="_event: click; _target: #guildingLightFrame; animation.property: position; animation.from: 0.7699 1.8 -1.98; animation.to: 0.8699 1.8 -1.98; animation__1.property: material.opacity; animation__1.from: 0; animation__1.to: 100; animation__1.dur: 20000;"
+        ></a-entity>
+        <a-entity id="seekers" gltf-model="#seeker" position="1.6866 1.2452 -1.9611" shadow="case: true" sound="src:#seekersSound; on:click;"
+            event-set__cursorw="_event: mouseenter; _target:#ring; color:white; scale:1 1 1;"
+            event-set__cursorr="_event: mouseleave; _target:#ring; color:red; scale:0.6 0.6 0.6;"
+            event-set__light1="_event: mouseenter; _target: #seekers_Light; light.intensity: 2.5;"
+            event-set__light2="_event: mouseleave; _target: #seekers_Light; light.intensity: 1;"
+            event-set__model="_event: click; _target: #seekers; animation.property: position; animation.to: 1.6866 1.4452 -1.9611; dur: 500;"
+            event-set__poster="_event: click; _target: #seekersFrame; animation.property: position; animation.from: 1.5866 1.8 -1.98; animation.to: 1.6866 1.8 -1.98; animation__1.property: material.opacity; animation__1.from: 0; animation__1.to: 100; animation__1.dur: 20000;"
+        ></a-entity>
+
+        <!--------------------------lighting------------------->
+        
+        <a-light type="directional" position="0 3.5 0" intensity=".8"></a-light>
+        <a-light type="ambient" position="0 3.5 0" intensity=".3"></a-light>
+
+        <!---spotlights-->
+        <a-entity id="regrowth_Light" light="type: spot; target: #sporeTarget; angle: 40; castShadow: true; penumbra: 1" position="-1.7122 1.6 -1.98"></a-entity>
+        <a-entity id="trailblazer_Light" light="type: spot; target: #wolfTarget; angle: 40; castShadow: true; penumbra: 1" position="-0.84073 1.6 -1.98"></a-entity>
+        <a-entity id="guardian_Light" light="type: spot; target: #gunTarget; angle: 45; castShadow: true; penumbra: 1" position="0 1.6 -1.98"></a-entity>
+        <a-entity id="guildingLight_Light" light="type: spot; target: #birdTarget; angle: 40; castShadow: true; penumbra: 1" position="0.8699 1.6 -1.98"></a-entity>
+        <a-entity id="seekers_Light" light="type: spot; target: #seekerTarget; angle: 40; castShadow: true; penumbra: 1" position="1.6866 1.6 -1.98"></a-entity>
+
+        <a-entity id="regrowth_LightFront" light="type: spot; target: #sporeTarget; angle: 20; castShadow: true; penumbra: 1; intensity: 0.5" position="-1.7122 1.6 -1.5"></a-entity>
+        <a-entity id="trailblazer_LightFront" light="type: spot; target: #wolfTarget; angle: 20; castShadow: true; penumbra: 1; intensity: 0.5" position="-0.84073 1.6 -1.5"></a-entity>
+        <a-entity id="guardian_LightFront" light="type: spot; target: #gunTarget; angle: 20; castShadow: true; penumbra: 1; intensity: 0.5" position="0 1.6 -1.5"></a-entity>
+        <a-entity id="guildingLight_LightFront" light="type: spot; target: #birdTarget; angle: 20; castShadow: true; penumbra: 1; intensity: 0.5" position="0.8699 1.6 -1.5"></a-entity>
+        <a-entity id="seekers_LightFront" light="type: spot; target: #seekerTarget; angle: 20; castShadow: true; penumbra: 1; intensity: 0.5" position="1.6866 1.6 -1.5"></a-entity>
+
+        <!---targets-->
+        <a-entity id="sporeTarget" geometry="primitive: box" position="-1.7122 1.1 -1.98" scale="0.01 0.01 0.01" visible="false"></a-entity>
+        <a-entity id="wolfTarget" geometry="primitive: box" position="-0.84073 1.1 -1.98" scale="0.01 0.01 0.01" visible="false"></a-entity>
+        <a-entity id="gunTarget" geometry="primitive: box" position="0 1.1 -1.98" scale="0.01 0.01 0.01" visible="false"></a-entity>
+        <a-entity id="birdTarget" geometry="primitive: box" position="0.8699 1.1 -1.98" scale="0.01 0.01 0.01" visible="false"></a-entity>
+        <a-entity id="seekerTarget" geometry="primitive: box" position="1.6866 1.1 -1.98" scale="0.01 0.01 0.01" visible="false"></a-entity>
+        <a-entity id="logoTarget" geometry="primitive: box" position="0 2.2129 -3" scale="0.01 0.01 0.01" visible="false"></a-entity>
+
+        <!----------------------------nav Cam------------------------------->
+
+        <a-entity id="rig" movement-controls="constrainToNavMesh:true">
+            <a-entity camera position="0 1.5 0" look-controls>
+                <a-cursor id="ring" color="red" sound="src:#clickSound; on:click;" position="0 0 -0.6" scale="0.6 0.6 0.6"></a-cursor>
+                <a-sound src="#music" autoplay="true" loop="true" volume="0.2"></a-sound>
+            </a-entity>
+
+        </a-entity>
+
+        <!--------------------------posters--------------------------------->
+
+        <a-entity id="guardianFrame"
+            geometry="primitive: box; height:1; width:3; depth:0.01;"
+            material="shader: flat; src:#guardianPoster; transparent: true;"
+            position="-0.1 -2 -1.9456"
+            rotation="0 0 0"
+            scale="0.6 0.6 0.6"
+
+            event-set__cursorw="_event: mouseenter; _target:#ring; color:transparent; scale:1 1 1;"
+            event-set__cursorr="_event: mouseleave; _target:#ring; color:red; scale:0.6 0.6 0.6;"
+            event-set__light1="_event: mouseenter; _target: #guardian_Light; light.intensity: 2.5;"
+            event-set__light2="_event: mouseleave; _target: #guardian_Light; light.intensity: 1;"
+            event-set__model="_event: click; _target: #guardian; animation__1.property: rotation; animation__1.to: 0 0 0; animation.property: position; animation.to: -.05 1.1764 -1.9456; dur:500;"
+            event-set__poster="_event: click; _target: #guardianFrame; animation.property: position; animation.from: 0 -2 -1.9456; animation.to: -0.1 -2 -1.9456; animation__1.property: material.opacity; animation__1.from: 100; animation__1.to: 0;"
+        ></a-entity>
+
+        <a-entity id="regrowthFrame"
+            geometry="primitive: box; height:1; width:3; depth:0.01;"
+            material="shader: flat; src:#regrowthPoster; transparent: true;"
+            position="-0.1 -2 -1.9456"
+            rotation="0 0 0"
+            scale="0.6 0.6 0.6"
+
+            event-set__cursorw="_event: mouseenter; _target:#ring; color:white; scale:1 1 1;"
+            event-set__cursorr="_event: mouseleave; _target:#ring; color:red; scale:0.6 0.6 0.6;"
+            event-set__light1="_event: mouseenter; _target: #regrowth_Light; light.intensity: 2.5;"
+            event-set__light2="_event: mouseleave; _target: #regrowth_Light; light.intensity: 1;"
+            event-set__model="_event: click; _target: #regrowth; animation.property: position; animation.to: -1.7122 1.2002 -1.9364; dur:500;"
+            event-set__poster="_event: click; _target: #regrowthFrame; animation.property: position; animation.from: 0 -2 -1.9456; animation.to: -0.1 -2 -1.9456; animation__1.property: material.opacity; animation__1.from: 100; animation__1.to: 0;"
+        ></a-entity>
+
+        <a-entity id="trailblazerFrame"
+            geometry="primitive: box; height:1; width:3; depth:0.01;"
+            material="shader: flat; src:#trailblazerPoster; transparent: true;"
+            position="-0.1 -2 -1.9456"
+            rotation="0 0 0"
+            scale="0.6 0.6 0.6"
+
+            event-set__cursorw="_event: mouseenter; _target:#ring; color:white; scale:1 1 1;"
+            event-set__cursorr="_event: mouseleave; _target:#ring; color:red; scale:0.6 0.6 0.6;"
+            event-set__light1="_event: mouseenter; _target: #trailblazer_Light; light.intensity: 2.5;"
+            event-set__light2="_event: mouseleave; _target: #trailblazer_Light; light.intensity: 1;"
+            event-set__model="_event: click; _target: #trailblazer; animation.property: position; animation.to: -0.84073 1.3011 -1.9358; dur:500;"
+            event-set__poster="_event: click; _target: #trailblazerFrame; animation.property: position; animation.from: 0 -2 -1.9456; animation.to: -0.1 -2 -1.9456; animation__1.property: material.opacity; animation__1.from: 100; animation__1.to: 0;"
+        ></a-entity>
+
+        <a-entity id="guildingLightFrame"
+            geometry="primitive: box; height:1; width:3; depth:0.01;"
+            material="shader: flat; src:#guildingLightPoster; transparent: true;"
+            position="-0.1 -2 -1.9456"
+            rotation="0 0 0"
+            scale="0.6 0.6 0.6"
+
+            event-set__cursorw="_event: mouseenter; _target:#ring; color:white; scale:1 1 1;"
+            event-set__cursorr="_event: mouseleave; _target:#ring; color:red; scale:0.6 0.6 0.6;"
+            event-set__light1="_event: mouseenter; _target: #guildingLight_Light; light.intensity: 2.5;"
+            event-set__light2="_event: mouseleave; _target: #guildingLight_Light; light.intensity: 1;"
+            event-set__model="_event: click; _target: #guildingLight; animation.property: position; animation.to: 0.8699 1.2225 -1.9314; dur:500;"
+            event-set__poster="_event: click; _target: #guildingLightFrame; animation.property: position; animation.from: 0 -2 -1.9456; animation.to: -0.1 -2 -1.9456; animation__1.property: material.opacity; animation__1.from: 100; animation__1.to: 0;"
+        ></a-entity>
+
+        <a-entity id="seekersFrame"
+            geometry="primitive: box; height:1; width:3; depth:0.01;"
+            material="shader: flat; src:#seekersPoster; transparent: true;"
+            position="-0.1 -2 -1.9456"
+            rotation="0 0 0"
+            scale="0.6 0.6 0.6"
+
+            event-set__cursorw="_event: mouseenter; _target:#ring; color:white; scale:1 1 1;"
+            event-set__cursorr="_event: mouseleave; _target:#ring; color:red; scale:0.6 0.6 0.6;"
+            event-set__light1="_event: mouseenter; _target: #seekers_Light; light.intensity: 2.5;"
+            event-set__light2="_event: mouseleave; _target: #seekers_Light; light.intensity: 1;"
+            event-set__model="_event: click; _target: #seekers; animation.property: position; animation.to: 1.6866 1.2452 -1.9611; dur:500;"
+            event-set__poster="_event: click; _target: #seekersFrame; animation.property: position; animation.from: 0 -2 -1.9456; animation.to: -0.1 -2 -1.9456; animation__1.property: material.opacity; animation__1.from: 100; animation__1.to: 0;"
+        ></a-entity>
+
+    </a-scene>
+
+</body>
+
+</html>
